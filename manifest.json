@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+
+    "name": "Popup App",
+    "description": "Popup current page without toolbar and navigation bar.",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "assets/images/icon.png"
+    },
+
+    "options_page": "options.html",
+
+    "background": {
+        "page": "main.html"
+    }
+}
