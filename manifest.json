@@ -1,17 +1,29 @@
 {
-    "manifest_version": 2,
+  "manifest_version": 2,
+  "name": "Popup App",
+  "version": "1.2",
+  "description": "Popup current window as an Application",
+  "author": "Color Fuzzy",
 
-    "name": "Popup App",
-    "description": "Popup current page without toolbar and navigation bar.",
-    "version": "1.0",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
 
-    "browser_action": {
-        "default_icon": "assets/images/icon.png"
-    },
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
 
-    "options_page": "options.html",
+  "content_scripts": [{
+      "all_frames": true,
+      "run_at": "document_start",
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["popup_extension_injection.js"]
+  }],
 
-    "background": {
-        "page": "main.html"
-    }
+  "background": {
+    "page": "main.html"
+  },
+
+  "options_page": "options.html"
 }

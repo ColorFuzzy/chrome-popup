@@ -1,4 +1,1 @@
-popup_app
-=========
-
-chrome拓展插件
+Popup Current Window as an Application.
