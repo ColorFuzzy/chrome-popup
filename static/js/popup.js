@@ -1,19 +1,19 @@
 // get host from a url
 function parseHost(url) {
-    var parser = document.createElement('a');
+    let parser = document.createElement('a');
     parser.href = url;
     return parser.host;
 }
 
 // popup window
 chrome.browserAction.onClicked.addListener(function(tab) {
-    var storage = chrome.storage.local;
-    var storageKey = "_settings_v0.1_";
-    var host = parseHost(tab.url);
+    let storage = chrome.storage.local;
+    let storageKey = "_settings_v0.1_";
+    let host = parseHost(tab.url);
     storage.get(storageKey, function(result) {
         // get windowSize
-        var mappings = result[storageKey] || Object();
-        var windowSize = {
+        let mappings = result[storageKey] || Object();
+        let windowSize = {
             "width": settings.defaultWidth,
             "height": settings.defaultHeight
         };
@@ -29,7 +29,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         });
 
         // save settings
-        var obj = Object();
+        let obj = Object();
         obj[storageKey] = mappings;
         storage.set(obj);
     });

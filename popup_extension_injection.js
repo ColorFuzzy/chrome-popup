@@ -2,7 +2,7 @@
     // register new on window resize event function,
     // never overwrite old function
     function popupExtensionAddResizeEvent(func) {
-        var oldResize = window.onresize;
+        let oldResize = window.onresize;
         window.onresize = function () {
             func();
             if (typeof oldResize === 'function') {
@@ -13,10 +13,10 @@
 
     // save window size on window resize event
     function popupExtensionSaveWindowSize() {
-        var storage = chrome.storage.local;
-        var storageKey = "_settings_v0.1_";
+        let storage = chrome.storage.local;
+        let storageKey = "_settings_v0.1_";
         storage.get(storageKey, function(result) {
-            var mappings = result[storageKey];
+            let mappings = result[storageKey];
 
             // only save the popup window
             if (mappings == null || mappings[window.location.host] == null) {
@@ -29,7 +29,7 @@
             }
 
             // save settings
-            var obj = Object();
+            let obj = Object();
             obj[storageKey] = mappings;
             storage.set(obj);
         });
